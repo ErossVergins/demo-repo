@@ -5,10 +5,23 @@ import time
 import yaml
 
 from datetime import datetime
+from configparser import ConfigParser
+
 print('Asteroid processing service')
 
 # Initiating and reading config values
 print('Loading configuration from file')
+
+try:
+	config = ConfigParser()
+	config.read('config.ini')
+
+	nasa_api_key = config.get('nasa', 'api_key')
+	nasa_api_url = config.get('nasa', 'api_url')
+except:
+	#logger.exception('') video materiālā kods strādāja arī ar šo rindu, bet man kods neiet ar šo loggeri
+	print('Calculating...')
+print('DONE')
 
 # Nasa API key and url
 nasa_api_key = "anY70mDLZiaS90yrlTg5Ec9ckvHEZSom8IlGt9au"
